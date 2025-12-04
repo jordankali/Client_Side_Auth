@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client-Side Auth Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+  <div class="login-container glass-card">
+    <h1 class="logo">Login</h1>
+
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" class="auth-form active">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p id="errorMsg" class="error hidden">Invalid credentials.</p>
+      <div class="form-links">
+        <a href="#" id="goToRegister">Register</a>
+        <a href="#" id="goToForgot">Forgot Password?</a>
+      </div>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="registerForm" class="auth-form hidden">
+      <h2>Create Account</h2>
+      <input type="text" id="regUsername" placeholder="Choose username" required />
+      <input type="password" id="regPassword" placeholder="Choose password" required />
+      <button type="submit">Register</button>
+      <p id="regErrorMsg" class="error hidden"></p>
+      <div class="form-links">
+        <a href="#" id="goToLogin1">Back to Login</a>
+      </div>
+    </form>
+
+    <!-- FORGOT PASSWORD FORM -->
+    <form id="forgotForm" class="auth-form hidden">
+      <h2>Forgot Password</h2>
+      <input type="text" id="forgotUsername" placeholder="Enter your username" required />
+      <button type="submit">Recover</button>
+      <p id="forgotErrorMsg" class="error hidden"></p>
+      <div class="form-links">
+        <a href="#" id="goToLogin2">Back to Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    // --- Simple form switching logic ---
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const forgotForm = document.getElementById("forgotForm");
+
+    document.getElementById("goToRegister").addEventListener("click", (e) => {
+      e.preventDefault();
+      loginForm.classList.add("hidden");
+      registerForm.classList.remove("hidden");
+    });
+
+    document.getElementById("goToForgot").addEventListener("click", (e) => {
+      e.preventDefault();
+      loginForm.classList.add("hidden");
+      forgotForm.classList.remove("hidden");
+    });
+
+    document.getElementById("goToLogin1").addEventListener("click", (e) => {
+      e.preventDefault();
+      registerForm.classList.add("hidden");
+      loginForm.classList.remove("hidden");
+    });
+
+    document.getElementById("goToLogin2").addEventListener("click", (e) => {
+      e.preventDefault();
+      forgotForm.classList.add("hidden");
+      loginForm.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
