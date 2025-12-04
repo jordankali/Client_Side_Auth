@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | Client-Side Auth Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-body">
+  <nav class="navbar">
+    <span class="brand">🔐 Client-Side Auth Demo</span>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </nav>
+
+  <main class="content">
+    <section class="welcome-section glass-card">
+      <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
+      <p class="flag">🏁 Here is your flag: GoH{cl13nt_s1d3_auth_byp4ss_y0u_f0und_th3_fl4g}</p>
+    </section>
+
+    <article class="info-section glass-card">
+      <h2>Why Client-Side Authentication Is a Bad Idea</h2>
+      <p>
+        Client-side authentication means verifying users entirely in the browser.
+        While it might seem easier, it’s fundamentally insecure because anyone
+        can open the browser’s developer tools and see (or modify) your logic.
+      </p>
+
+      <h3>⚠️ The Problems</h3>
+      <ul>
+        <li>🔍 Source code is public — attackers can see your credentials and bypass checks.</li>
+        <li>🧑‍💻 No server enforcement — fake clients can just skip “authentication”.</li>
+        <li>💾 Easily tampered state — localStorage and cookies can be modified.</li>
+        <li>🔓 False security — developers may think it’s protected, but it’s not.</li>
+      </ul>
+
+      <h3>✅ The Right Way</h3>
+      <p>
+        Always verify authentication on the <strong>server</strong>.
+        Use HTTPS, JWTs, or session-based authentication.
+        The client should only store tokens securely and pass them to the backend.
+      </p>
+
+      <h3>📚 Learn More</h3>
+      <ul>
+        <li><a href="https://cwe.mitre.org/data/definitions/603.html" target="_blank">MITRE CWE-603: Use of Client-Side Authentication</a></li>
+        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten Security Risks</a></li>
+        <li><a href="https://martellosecurity.com/kb/mitre/cwe/603/" target="_blank">Martello Security CWE-603 Overview</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>
+
